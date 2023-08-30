@@ -32,6 +32,6 @@ public class dilek extends BaseDriver {
         Assert.assertTrue(login2.getText().toLowerCase().contains("success"));
 
 
-
     }
 
+}

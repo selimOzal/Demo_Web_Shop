@@ -1,5 +1,6 @@
 package Demo_web_shop;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,39 +14,27 @@ public class elif {
     public void Logout() {
 
         // Logout yapabilmek icin once Login olmak gerekiyor
-        WebElement log_in =driver.findElement(By.xpath("//div[@id='bar-notification']"));
+
+        driver.get("https://demowebshop.tricentis.com/");
+        WebElement log_in =driver.findElement(By.className("ico-login"));
         log_in.click();
 
         String Email = "grup16basarir@gmail.com";
-        WebElement email = driver.findElement(By.xpath("//div[@class='master-wrapper-page']"));
+        WebElement email = driver.findElement(By.id("Email"));
         email.sendKeys(Email);
 
         String Password = "1234567Ss";
-        WebElement password = driver.findElement(By.id("//input[@type='password']"));
+        WebElement password = driver.findElement(By.id("Password"));
         password.sendKeys(Password);
 
-        WebElement rememberMe=driver.findElement(By.id("//input[@type='checkbox']"));
-        rememberMe.click();
-
+        WebElement loginButton = driver.findElement(By.cssSelector("[value='Log in']"));
+        loginButton.click();
 
      // Login islemi yapildi simdi Logout yapabilabilir.
 
-
-
-        WebDriver driver=new ChromeDriver();
-        driver.get("https://demowebshop.tricentis.com/");
-
-        WebElement logoutButton = driver.findElement(By.xpath("//div[@class='master-wrapper-page']"));
+        WebElement logoutButton = driver.findElement(By.className("ico-logout"));
         logoutButton.click();
-
-
-
-
-
-
-
-
-
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://demowebshop.tricentis.com/"));
 
     }
 }

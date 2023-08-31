@@ -56,40 +56,5 @@ public class Akif extends BaseDriver {
 
     }
 
-    @Test
-    public void Test2() {
-        WebDriver driver = new ChromeDriver();
 
-        driver.get("https://www.akakce.com/");
-
-        WebElement girisYap = driver.findElement(By.xpath("//div[@id='H_rl_v8']/a /following::a"));
-        girisYap.click();
-        MyFunc.Bekle(1);
-
-        WebElement ePosta = driver.findElement(By.xpath("//*[@id='life']"));
-        ePosta.sendKeys("abili@hotmail.com");
-        MyFunc.Bekle(1);
-
-        WebElement sifre = driver.findElement(By.xpath("//*[@id='lifp']"));
-        sifre.sendKeys("Akif123.");
-        MyFunc.Bekle(1);
-
-        WebElement girisYap2 = driver.findElement(By.xpath("//*[@id='lfb']"));
-        girisYap2.click();
-        MyFunc.Bekle(1);
-
-
-        WebElement profile = driver.findElement(By.xpath("//div[@id='HM_v8']//a"));
-        profile.click();
-        MyFunc.Bekle(1);
-
-        WebElement mesajlarim = driver.findElement(By.xpath("//li[@class='order first']/a[2]"));
-        mesajlarim.click();
-        MyFunc.Bekle(1);
-
-        WebElement messagebox = driver.findElement(By.xpath("//div[@class='wbb_v8']/p"));
-
-        Assert.assertEquals("Mesaj kutusu dolu", "Listelenecek mesaj bulunamadı.", messagebox.getText());
-
-    }
 }

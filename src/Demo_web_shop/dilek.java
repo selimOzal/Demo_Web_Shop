@@ -13,24 +13,26 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class dilek extends BaseDriver {
     @Test
     public void OturumAcma() {
-        WebDriver driver = new ChromeDriver();
+        //WebDriver driver = new ChromeDriver();
         driver.get("https://demowebshop.tricentis.com");
         WebElement loginButon = driver.findElement(By.cssSelector("a[class='ico-login']"));
         loginButon.click();
         WebElement Emailgiris = driver.findElement(By.cssSelector("input[id='Email']"));
         Emailgiris.sendKeys("grup16basarir@gmail.com");
-        MyFunc.Bekle(2);
+
         WebElement Passwordgiris = driver.findElement(By.cssSelector("input[id='Password']"));
-        Passwordgiris.sendKeys("12345657Ss");
-        MyFunc.Bekle(2);
+        Passwordgiris.sendKeys("1234567Ss");
+
         WebElement login2 = driver.findElement(By.cssSelector("input[class='button-1 login-button']"));
         login2.click();
+
         WebElement computers = driver.findElement(By.cssSelector("a[href='/computers']"));
         computers.click();
 
+        WebElement myAccount = driver.findElement(By.xpath("(//a[@class='account'])[1]"));
+        Assert.assertTrue("Giris islemi basarisiz", myAccount.getText().equals("grup16basarir@gmail.com"));
 
-        Assert.assertTrue(login2.getText().toLowerCase().contains("success"));
-
+        BekleVeKapat();
 
     }
 
